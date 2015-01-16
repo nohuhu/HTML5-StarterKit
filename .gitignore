@@ -1,5 +1,4 @@
 htdocs/ext
 htdocs/build
 htdocs/bootstrap.css
-htdocs/bootstrap.js
-
+htdocs/bootstrap.js*
