@@ -175,7 +175,11 @@
     
     "development": {
     },
-
+    
+    "loader": {
+        "cache": ""
+    },
+    
     /**
      *  Controls the output structure of bootstrap artifacts.  May be specified by a string:
      *
