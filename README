@@ -1,0 +1,15 @@
+HTML5::StarterKit
+=================
+
+This project's goal is to show how to build a modern HTML5 application
+with Perl on the server side, and Ext JS framework on the client side.
+
+LICENSE AND COPYRIGHT
+=====================
+
+HTML5::StarterKit is Copyright (c) 2015, Alex Tokarev.
+
+HTML5::StarterKit program is free software; you can redistribute it
+and/or modify it under the terms of the MIT license. For details,
+see the full text of the license in the file LICENSE.
+
