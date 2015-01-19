@@ -7,7 +7,9 @@
  */
 Ext.define('StarterKit.view.main.Main', {
     extend: 'Ext.container.Container',
+    
     requires: [
+        'Ext.grid.Panel',
         'StarterKit.view.main.MainController',
         'StarterKit.view.main.MainModel'
     ],
@@ -36,12 +38,32 @@ Ext.define('StarterKit.view.main.Main', {
             text: 'Button',
             handler: 'onClickButton'
         }]
-    },{
+    }, {
         region: 'center',
         xtype: 'tabpanel',
-        items:[{
-            title: 'Tab 1',
-            html: '<h2>Content appropriate for the current navigation.</h2>'
+        items: [{
+            title: 'Customers',
+            xtype: 'grid',
+            
+            columns: [{
+                text: 'Name',
+                dataIndex: 'name',
+                flex: 10
+            }, {
+                xtype: 'datecolumn',
+                text: 'Last change date',
+                dataIndex: 'last_change',
+                format: 'm/d/Y H:i:s',
+                flex: 2
+            }, {
+                text: 'External ID',
+                dataIndex: 'external_id',
+                flex: 2
+            }],
+            
+            store: {
+                type: 'customer'
+            }
         }]
     }]
 });

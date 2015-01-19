@@ -6,6 +6,12 @@
 Ext.define('StarterKit.Application', {
     extend: 'Ext.app.Application',
     
+    requires: [
+        'Ext.direct.Manager',
+        'Ext.direct.RemotingProvider',
+        'StarterKit.store.Customer'
+    ],
+    
     name: 'StarterKit',
 
     stores: [
@@ -13,6 +19,6 @@ Ext.define('StarterKit.Application', {
     ],
     
     launch: function () {
-        // TODO - Launch the application
+        Ext.direct.Manager.addProvider(REMOTING_API);
     }
 });
