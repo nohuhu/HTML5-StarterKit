@@ -30,7 +30,14 @@ sub read {
         }
     };
     
-    my $schema = HTML5::StarterKit::Schema->connect($dsn);
+    my $schema = HTML5::StarterKit::Schema->connect(
+        $dsn,
+        undef,
+        undef,
+        {
+            on_connect_do => 'PRAGMA foreign_keys = ON',
+        }
+    );
     my $resultset = $schema->resultset($table);
 
     # Another hackish hack
