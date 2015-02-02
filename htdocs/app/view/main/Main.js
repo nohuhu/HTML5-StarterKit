@@ -44,11 +44,16 @@ Ext.define('StarterKit.view.main.Main', {
         items: [{
             title: 'Customers',
             xtype: 'grid',
+            reference: 'customers',
             
             columns: [{
                 text: 'Name',
                 dataIndex: 'name',
-                flex: 10
+                flex: 10,
+                editor: {
+                    xtype: 'textfield',
+                    allowBlank: false
+                }
             }, {
                 xtype: 'datecolumn',
                 text: 'Last change date',
@@ -58,11 +63,52 @@ Ext.define('StarterKit.view.main.Main', {
             }, {
                 text: 'External ID',
                 dataIndex: 'external_id',
-                flex: 2
+                flex: 2,
+                editor: {
+                    xtype: 'textfield',
+                    allowBlank: false
+                }
             }],
+            
+            selModel: {
+                type: 'rowmodel',
+                mode: 'MULTI'
+            },
+            
+            plugins: {
+                ptype: 'rowediting',
+                pluginId: 'editor'
+            },
             
             store: {
                 type: 'customer'
+            },
+            
+            tbar: {
+                defaults: {
+                    gridReference: 'customers'
+                },
+                
+                items: [{
+                    text: 'Add',
+                    reference: 'addButton',
+                    handler: 'onAdd'
+                }, {
+                    text: 'Edit',
+                    reference: 'editButton',
+                    handler: 'onEdit'
+                }, {
+                    text: 'Delete',
+                    reference: 'deleteButton',
+                    handler: 'onDelete'
+                }, {
+                    text: 'Sync',
+                    handler: function(btn) {
+                        var grid = btn.up('gridpanel');
+                        
+                        grid.getStore().sync();
+                    }
+                }]
             }
         }]
     }]

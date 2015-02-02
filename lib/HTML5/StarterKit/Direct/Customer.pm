@@ -14,15 +14,15 @@ sub read : ExtDirect(params => [], strict => 0) {
     return shift->SUPER::read($TABLE, @_);
 }
 
-sub create : ExtDirect(params => []) {
+sub create : ExtDirect(len => 1) {
     return shift->SUPER::create($TABLE, @_);
 }
 
-sub update : ExtDirect(params => []) {
+sub update : ExtDirect(len => 1) {
     return shift->SUPER::update($TABLE, @_);
 }
 
-sub delete : ExtDirect(params => []) {
+sub delete : ExtDirect(len => 1) {
     return shift->SUPER::delete($TABLE, @_);
 }
 

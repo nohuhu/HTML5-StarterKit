@@ -2,6 +2,7 @@ Ext.define('StarterKit.model.Customer', {
     extend: 'Ext.data.Model',
     
     idProperty: 'id',
+    clientIdProperty: 'clientId',
     
     fields: [{
         name: 'id',

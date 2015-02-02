@@ -22,5 +22,29 @@ Ext.define('StarterKit.view.main.MainController', {
         if (choice === 'yes') {
             //
         }
+    },
+    
+    onAdd: function(button) {
+        var grid, store, Model, plugin, record;
+        
+        grid   = this.lookupReference(button.gridReference);
+        store  = grid.getStore();
+        Model  = store.getModel();
+        plugin = grid.getPlugin('editor');
+        
+        record = new Model();
+        store.add(record);
+        plugin.startEdit(record);
+    },
+    
+    onDelete: function(button) {
+        var grid, selection, i, len;
+        
+        grid = this.lookupReference(button.gridReference);
+        selection = grid.getSelectionModel().getSelection();
+        
+        for (i = 0, len = selection.length; i < len; i++) {
+            grid.getStore().remove(selection[i]);
+        }
     }
 });
