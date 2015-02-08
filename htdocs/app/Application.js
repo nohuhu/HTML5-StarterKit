@@ -9,7 +9,9 @@ Ext.define('StarterKit.Application', {
     requires: [
         'Ext.direct.Manager',
         'Ext.direct.RemotingProvider',
-        'StarterKit.store.Customer'
+        'StarterKit.store.Customer',
+		'StarterKit.store.Domain',
+		'StarterKit.store.Mailbox'
     ],
     
     name: 'StarterKit',

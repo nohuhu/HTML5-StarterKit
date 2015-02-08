@@ -110,6 +110,126 @@ Ext.define('StarterKit.view.main.Main', {
                     }
                 }]
             }
+        },{
+            title: 'Domains',
+            xtype: 'grid',
+            reference: 'domains',
+            columns: [{
+                text: 'Name',
+                dataIndex: 'name',
+                flex: 10,
+                editor: {
+                    xtype: 'textfield',
+                    allowBlank: false
+                }
+            }, {
+                xtype: 'datecolumn',
+                text: 'Last change date',
+                dataIndex: 'last_change',
+                format: 'm/d/Y H:i:s',
+                flex: 2
+            }],
+            
+            selModel: {
+                type: 'rowmodel',
+                mode: 'MULTI'
+            },
+            
+            plugins: {
+                ptype: 'rowediting',
+                pluginId: 'editor'
+            },
+            
+            store: {
+                type: 'domain'
+            },
+            
+            tbar: {
+                defaults: {
+                    gridReference: 'domains'
+                },
+                
+                items: [{
+                    text: 'Add',
+                    reference: 'addButton',
+                    handler: 'onAdd'
+                }, {
+                    text: 'Edit',
+                    reference: 'editButton',
+                    handler: 'onEdit'
+                }, {
+                    text: 'Delete',
+                    reference: 'deleteButton',
+                    handler: 'onDelete'
+                }, {
+                    text: 'Sync',
+                    handler: function(btn) {
+                        var grid = btn.up('gridpanel');
+                        
+                        grid.getStore().sync();
+                    }
+                }]
+            }
+        },{
+            title: 'Mailboxes',
+            xtype: 'grid',
+            reference: 'mailboxes',
+            columns: [{
+                text: 'Name',
+                dataIndex: 'name',
+                flex: 10,
+                editor: {
+                    xtype: 'textfield',
+                    allowBlank: false
+                }
+            }, {
+                xtype: 'datecolumn',
+                text: 'Last change date',
+                dataIndex: 'last_change',
+                format: 'm/d/Y H:i:s',
+                flex: 2
+            }],
+            
+            selModel: {
+                type: 'rowmodel',
+                mode: 'MULTI'
+            },
+            
+            plugins: {
+                ptype: 'rowediting',
+                pluginId: 'editor'
+            },
+            
+            store: {
+                type: 'mailbox'
+            },
+            
+            tbar: {
+                defaults: {
+                    gridReference: 'mailboxes'
+                },
+                
+                items: [{
+                    text: 'Add',
+                    reference: 'addButton',
+                    handler: 'onAdd'
+                }, {
+                    text: 'Edit',
+                    reference: 'editButton',
+                    handler: 'onEdit'
+                }, {
+                    text: 'Delete',
+                    reference: 'deleteButton',
+                    handler: 'onDelete'
+                }, {
+                    text: 'Sync',
+                    handler: function(btn) {
+                        var grid = btn.up('gridpanel');
+                        
+                        grid.getStore().sync();
+                    }
+                }]
+            }
         }]
     }]
 });
