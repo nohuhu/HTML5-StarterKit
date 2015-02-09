@@ -6,93 +6,94 @@
  * TODO - Replace this content of this view to suite the needs of your application.
  */
 Ext.define('StarterKit.view.mailbox.Mailbox', {
-    extend: 'Ext.container.Container',
-    
-    requires: [
-        'Ext.grid.Panel',
-        'StarterKit.view.mailbox.MailboxController',
-        'StarterKit.view.mailbox.MailboxModel',
-        'Ext.toolbar.Paging'
-    ],
+	extend: 'Ext.container.Container',
 
-    xtype: 'mailboxpanel',
-    
-    controller: 'mailbox',
-    viewModel: {
-        type: 'mailbox'
-    },
+	requires: [
+		'Ext.grid.Panel',
+		'StarterKit.view.mailbox.MailboxController',
+		'StarterKit.view.mailbox.MailboxModel',
+		'Ext.toolbar.Paging'
+	],
 
-    layout: {
-        type: 'fit'
-    },
+	xtype: 'mailboxpanel',
 
-    items: [{
-//            title: 'Mailboxes',
-            xtype: 'grid',
-            reference: 'mailboxes',
-            
-            columns: [{
-                text: 'Name',
-                dataIndex: 'name',
-                flex: 10,
-                editor: {
-                    xtype: 'textfield',
-                    allowBlank: false
-                }
-            }, {
-                xtype: 'datecolumn',
-                text: 'Last change date',
-                dataIndex: 'last_change',
-                format: 'm/d/Y H:i:s',
-                flex: 2
-            }],		    dockedItems: [{
-		           xtype: 'pagingtoolbar',
-	            store: {
-	                type: 'mailbox'
-	            },
-		           dock: 'bottom',
-		           displayInfo: true
-		       }],
-            
-            selModel: {
-                type: 'rowmodel',
-                mode: 'MULTI'
-            },
-            
-            plugins: {
-                ptype: 'rowediting',
-                pluginId: 'editor'
-            },
-            
-            store: {
-                type: 'mailbox'
-            },
-            
-            tbar: {
-                defaults: {
-                    gridReference: 'mailboxes'
-                },
-                
-                items: [{
-                    text: 'Add',
-                    reference: 'addButton',
-                    handler: 'onAdd'
-                }, {
-                    text: 'Edit',
-                    reference: 'editButton',
-                    handler: 'onEdit'
-                }, {
-                    text: 'Delete',
-                    reference: 'deleteButton',
-                    handler: 'onDelete'
-                }, {
-                    text: 'Sync',
-                    handler: function(btn) {
-                        var grid = btn.up('gridpanel');
-                        
-                        grid.getStore().sync();
-                    }
-                }]
-            }
-        }]
+	controller: 'mailbox',
+	viewModel: {
+		type: 'mailbox'
+	},
+
+	layout: {
+		type: 'fit'
+	},
+
+	items: [{
+		// title: 'Mailboxes',
+		xtype: 'grid',
+		reference: 'mailboxes',
+
+		columns: [{
+			text: 'Name',
+			dataIndex: 'name',
+			flex: 10,
+			editor: {
+				xtype: 'textfield',
+				allowBlank: false
+			}
+		}, {
+			xtype: 'datecolumn',
+			text: 'Last change date',
+			dataIndex: 'last_change',
+			format: 'm/d/Y H:i:s',
+			flex: 2
+		}],
+		dockedItems: [{
+			xtype: 'pagingtoolbar',
+			store: {
+				type: 'mailbox'
+			},
+			dock: 'bottom',
+			displayInfo: true
+		}],
+
+		selModel: {
+			type: 'rowmodel',
+			mode: 'MULTI'
+		},
+
+		plugins: {
+			ptype: 'rowediting',
+			pluginId: 'editor'
+		},
+
+		store: {
+			type: 'mailbox'
+		},
+
+		tbar: {
+			defaults: {
+				gridReference: 'mailboxes'
+			},
+
+			items: [{
+				text: 'Add',
+				reference: 'addButton',
+				handler: 'onAdd'
+			}, {
+				text: 'Edit',
+				reference: 'editButton',
+				handler: 'onEdit'
+			}, {
+				text: 'Delete',
+				reference: 'deleteButton',
+				handler: 'onDelete'
+			}, {
+				text: 'Sync',
+				handler: function(btn) {
+					var grid = btn.up('gridpanel');
+
+					grid.getStore().sync();
+				}
+			}]
+		}
+	}]
 });

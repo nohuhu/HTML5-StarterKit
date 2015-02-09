@@ -6,93 +6,94 @@
  * TODO - Replace this content of this view to suite the needs of your application.
  */
 Ext.define('StarterKit.view.domain.Domain', {
-    extend: 'Ext.container.Container',
-    
-    requires: [
-        'Ext.grid.Panel',
-        'StarterKit.view.domain.DomainController',
-        'StarterKit.view.domain.DomainModel',
-        'Ext.toolbar.Paging'
-    ],
+	extend: 'Ext.container.Container',
 
-    xtype: 'domainpanel',
-    
-    controller: 'domain',
-    viewModel: {
-        type: 'domain'
-    },
+	requires: [
+		'Ext.grid.Panel',
+		'StarterKit.view.domain.DomainController',
+		'StarterKit.view.domain.DomainModel',
+		'Ext.toolbar.Paging'
+	],
 
-    layout: {
-        type: 'fit'
-    },
+	xtype: 'domainpanel',
 
-    items: [{
-//            title: 'Domains',
-            xtype: 'grid',
-            reference: 'domains',
-            
-            columns: [{
-                text: 'Name',
-                dataIndex: 'name',
-                flex: 10,
-                editor: {
-                    xtype: 'textfield',
-                    allowBlank: false
-                }
-            }, {
-                xtype: 'datecolumn',
-                text: 'Last change date',
-                dataIndex: 'last_change',
-                format: 'm/d/Y H:i:s',
-                flex: 2
-            }],		    dockedItems: [{
-		           xtype: 'pagingtoolbar',
-	            store: {
-	                type: 'domain'
-	            },
-		           dock: 'bottom',
-		           displayInfo: true
-		       }],
-            
-            selModel: {
-                type: 'rowmodel',
-                mode: 'MULTI'
-            },
-            
-            plugins: {
-                ptype: 'rowediting',
-                pluginId: 'editor'
-            },
-            
-            store: {
-                type: 'domain'
-            },
-            
-            tbar: {
-                defaults: {
-                    gridReference: 'domains'
-                },
-                
-                items: [{
-                    text: 'Add',
-                    reference: 'addButton',
-                    handler: 'onAdd'
-                }, {
-                    text: 'Edit',
-                    reference: 'editButton',
-                    handler: 'onEdit'
-                }, {
-                    text: 'Delete',
-                    reference: 'deleteButton',
-                    handler: 'onDelete'
-                }, {
-                    text: 'Sync',
-                    handler: function(btn) {
-                        var grid = btn.up('gridpanel');
-                        
-                        grid.getStore().sync();
-                    }
-                }]
-            }
-        }]
+	controller: 'domain',
+	viewModel: {
+		type: 'domain'
+	},
+
+	layout: {
+		type: 'fit'
+	},
+
+	items: [{
+		// title: 'Domains',
+		xtype: 'grid',
+		reference: 'domains',
+
+		columns: [{
+			text: 'Name',
+			dataIndex: 'name',
+			flex: 10,
+			editor: {
+				xtype: 'textfield',
+				allowBlank: false
+			}
+		}, {
+			xtype: 'datecolumn',
+			text: 'Last change date',
+			dataIndex: 'last_change',
+			format: 'm/d/Y H:i:s',
+			flex: 2
+		}],
+		dockedItems: [{
+			xtype: 'pagingtoolbar',
+			store: {
+				type: 'domain'
+			},
+			dock: 'bottom',
+			displayInfo: true
+		}],
+
+		selModel: {
+			type: 'rowmodel',
+			mode: 'MULTI'
+		},
+
+		plugins: {
+			ptype: 'rowediting',
+			pluginId: 'editor'
+		},
+
+		store: {
+			type: 'domain'
+		},
+
+		tbar: {
+			defaults: {
+				gridReference: 'domains'
+			},
+
+			items: [{
+				text: 'Add',
+				reference: 'addButton',
+				handler: 'onAdd'
+			}, {
+				text: 'Edit',
+				reference: 'editButton',
+				handler: 'onEdit'
+			}, {
+				text: 'Delete',
+				reference: 'deleteButton',
+				handler: 'onDelete'
+			}, {
+				text: 'Sync',
+				handler: function(btn) {
+					var grid = btn.up('gridpanel');
+
+					grid.getStore().sync();
+				}
+			}]
+		}
+	}]
 });
