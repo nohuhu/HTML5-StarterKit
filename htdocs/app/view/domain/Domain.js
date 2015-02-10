@@ -40,6 +40,12 @@ Ext.define('StarterKit.view.domain.Domain', {
 				allowBlank: false
 			}
 		}, {
+			xtype: 'numbercolumn',
+			text: 'Customer ID',
+			dataIndex: 'customer_id',
+			format: '0',
+			flex: 2
+		}, {
 			xtype: 'datecolumn',
 			text: 'Last change date',
 			dataIndex: 'last_change',

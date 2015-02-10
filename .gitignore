@@ -3,3 +3,7 @@ htdocs/ext
 htdocs/build
 htdocs/bootstrap.css
 htdocs/bootstrap.js*
+data/db.sqlite
+htdocs/sass/example/bootstrap.json
+
+htdocs/sass/example/bootstrap.json

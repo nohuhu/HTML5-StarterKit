@@ -32,8 +32,38 @@ Ext.define('StarterKit.view.mailbox.Mailbox', {
 		reference: 'mailboxes',
 
 		columns: [{
+			xtype: 'numbercolumn',
+			text: 'Domain ID',
+			dataIndex: 'domain_id',
+			format: '0',
+			flex: 2
+		}, {
 			text: 'Name',
 			dataIndex: 'name',
+			flex: 10,
+			editor: {
+				xtype: 'textfield',
+				allowBlank: false
+			}
+		}, {
+			text: 'Localpart',
+			dataIndex: 'localpart',
+			flex: 10,
+			editor: {
+				xtype: 'textfield',
+				allowBlank: false
+			}
+		}, {
+			text: 'Username',
+			dataIndex: 'username',
+			flex: 10,
+			editor: {
+				xtype: 'textfield',
+				allowBlank: false
+			}
+		}, {
+			text: 'Password',
+			dataIndex: 'password',
 			flex: 10,
 			editor: {
 				xtype: 'textfield',
