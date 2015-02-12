@@ -7,6 +7,9 @@ use RPC::ExtDirect::Config;
 
 # Ext Direct Action packages go here
 use HTML5::StarterKit::Direct::Customer;
+use HTML5::StarterKit::Direct::Domain;
+use HTML5::StarterKit::Direct::Mailbox;
+
 
 builder {
     enable 'ExtDirect', config => RPC::ExtDirect::Config->new(
