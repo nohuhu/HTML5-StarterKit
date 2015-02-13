@@ -1,9 +1,10 @@
+/*
+ * This file contains the definition for our Domain store.
+ */
 Ext.define('StarterKit.store.Domain', {
     extend: 'Ext.data.Store',
-    alias:  'store.domain',
-    
+    alias: 'store.domain',
     model: 'StarterKit.model.Domain',
-    
     proxy: {
         type: 'direct',
         api: {
@@ -13,6 +14,5 @@ Ext.define('StarterKit.store.Domain', {
             destroy: 'StarterKit.Domain.delete'
         }
     },
-    
     autoLoad: true
 });

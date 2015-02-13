@@ -1,9 +1,10 @@
+/*
+ * This file contains the definition for our Mailbox store.
+ */
 Ext.define('StarterKit.store.Mailbox', {
     extend: 'Ext.data.Store',
-    alias:  'store.mailbox',
-    
+    alias: 'store.mailbox',
     model: 'StarterKit.model.Mailbox',
-    
     proxy: {
         type: 'direct',
         api: {
@@ -13,6 +14,5 @@ Ext.define('StarterKit.store.Mailbox', {
             destroy: 'StarterKit.Mailbox.delete'
         }
     },
-    
     autoLoad: true
 });

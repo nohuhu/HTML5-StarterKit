@@ -5,3 +5,4 @@ htdocs/bootstrap.css
 htdocs/bootstrap.js*
 data/db.sqlite
 htdocs/sass/example/bootstrap.json
+/nbproject

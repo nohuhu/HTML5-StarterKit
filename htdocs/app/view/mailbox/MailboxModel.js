@@ -1,11 +1,9 @@
 /**
- * This class is the view model for the Main view of the application.
+ * This class is the view model for the Mailbox view of the application.
  */
 Ext.define('StarterKit.view.mailbox.MailboxModel', {
     extend: 'Ext.app.ViewModel',
-
     alias: 'viewmodel.mailbox',
-
     data: {
         name: 'StarterKit'
     }
