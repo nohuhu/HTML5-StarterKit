@@ -3,6 +3,11 @@
  */
 Ext.define('StarterKit.model.Customer', {
     extend: 'Ext.data.Model',
+    requires: [
+        'Ext.data.field.Number',
+        'Ext.data.field.String',
+        'Ext.data.field.Date'
+    ],
     idProperty: 'id',
     clientIdProperty: 'clientId',
     fields: [{

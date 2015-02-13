@@ -3,6 +3,12 @@
  */
 Ext.define('StarterKit.model.Mailbox', {
     extend: 'Ext.data.Model',
+    requires: [
+        'Ext.data.field.Number',
+        'Ext.data.field.String',
+        'Ext.data.field.Date',
+        'Ext.data.field.Boolean'
+    ],
     idProperty: 'id',
     clientIdProperty: 'clientId',
     fields: [{
