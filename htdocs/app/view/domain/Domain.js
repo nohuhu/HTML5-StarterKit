@@ -24,6 +24,12 @@ Ext.define('StarterKit.view.domain.Domain', {
             xtype: 'grid',
             reference: 'domains',
             columns: [{
+                    xtype: 'numbercolumn',
+                    text: 'Domain ID',
+                    dataIndex: 'id',
+                    format: '0',
+                    flex: 2
+                }, {
                     text: 'Name',
                     dataIndex: 'name',
                     flex: 10,
@@ -54,7 +60,8 @@ Ext.define('StarterKit.view.domain.Domain', {
                 }],
             selModel: {
                 type: 'rowmodel',
-                mode: 'MULTI'
+                mode: 'SINGLE',
+                allowDeselect: true
             },
             plugins: {
                 ptype: 'rowediting',
@@ -74,11 +81,17 @@ Ext.define('StarterKit.view.domain.Domain', {
                     }, {
                         text: 'Edit',
                         reference: 'editButton',
-                        handler: 'onEdit'
+                        handler: 'onEdit',
+                        bind: {
+                            hidden: '{!domains.selection}'
+                        }
                     }, {
                         text: 'Delete',
                         reference: 'deleteButton',
-                        handler: 'onDelete'
+                        handler: 'onDelete',
+                        bind: {
+                            hidden: '{!domains.selection}'
+                        }
                     }, {
                         text: 'Sync',
                         handler: function (btn) {

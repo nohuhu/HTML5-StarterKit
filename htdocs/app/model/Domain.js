@@ -8,6 +8,9 @@ Ext.define('StarterKit.model.Domain', {
         'Ext.data.field.String',
         'Ext.data.field.Date'
     ],
+    uses: [
+        'StarterKit.model.Customer'
+    ],
     idProperty: 'id',
     clientIdProperty: 'clientId',
     fields: [{
@@ -15,7 +18,8 @@ Ext.define('StarterKit.model.Domain', {
             type: 'int'
         }, {
             name: 'customer_id',
-            type: 'int'
+            type: 'int',
+            reference: 'StarterKit.model.Customer'
         }, {
             name: 'name',
             type: 'string'

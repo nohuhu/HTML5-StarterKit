@@ -25,6 +25,12 @@ Ext.define('StarterKit.view.mailbox.Mailbox', {
             reference: 'mailboxes',
             columns: [{
                     xtype: 'numbercolumn',
+                    text: 'Mailbox ID',
+                    dataIndex: 'id',
+                    format: '0',
+                    flex: 2
+                }, {
+                    xtype: 'numbercolumn',
                     text: 'Domain ID',
                     dataIndex: 'domain_id',
                     format: '0',
@@ -32,7 +38,7 @@ Ext.define('StarterKit.view.mailbox.Mailbox', {
                 }, {
                     text: 'Name',
                     dataIndex: 'name',
-                    flex: 10,
+                    flex: 5,
                     editor: {
                         xtype: 'textfield',
                         allowBlank: false
@@ -40,7 +46,7 @@ Ext.define('StarterKit.view.mailbox.Mailbox', {
                 }, {
                     text: 'Localpart',
                     dataIndex: 'localpart',
-                    flex: 10,
+                    flex: 5,
                     editor: {
                         xtype: 'textfield',
                         allowBlank: false
@@ -48,7 +54,7 @@ Ext.define('StarterKit.view.mailbox.Mailbox', {
                 }, {
                     text: 'Username',
                     dataIndex: 'username',
-                    flex: 10,
+                    flex: 5,
                     editor: {
                         xtype: 'textfield',
                         allowBlank: false
@@ -56,7 +62,7 @@ Ext.define('StarterKit.view.mailbox.Mailbox', {
                 }, {
                     text: 'Password',
                     dataIndex: 'password',
-                    flex: 10,
+                    flex: 5,
                     editor: {
                         xtype: 'textfield',
                         allowBlank: false
@@ -78,7 +84,8 @@ Ext.define('StarterKit.view.mailbox.Mailbox', {
                 }],
             selModel: {
                 type: 'rowmodel',
-                mode: 'MULTI'
+                mode: 'SINGLE',
+                allowDeselect: true
             },
             plugins: {
                 ptype: 'rowediting',
@@ -98,11 +105,17 @@ Ext.define('StarterKit.view.mailbox.Mailbox', {
                     }, {
                         text: 'Edit',
                         reference: 'editButton',
-                        handler: 'onEdit'
+                        handler: 'onEdit',
+                        bind: {
+                            hidden: '{!mailboxes.selection}'
+                        }
                     }, {
                         text: 'Delete',
                         reference: 'deleteButton',
-                        handler: 'onDelete'
+                        handler: 'onDelete',
+                        bind: {
+                            hidden: '{!mailboxes.selection}'
+                        }
                     }, {
                         text: 'Sync',
                         handler: function (btn) {

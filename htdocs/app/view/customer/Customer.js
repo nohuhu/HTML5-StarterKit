@@ -24,6 +24,12 @@ Ext.define('StarterKit.view.customer.Customer', {
             xtype: 'grid',
             reference: 'customers',
             columns: [{
+                    xtype: 'numbercolumn',
+                    text: 'Customer ID',
+                    dataIndex: 'id',
+                    format: '0',
+                    flex: 2
+                }, {
                     text: 'Name',
                     dataIndex: 'name',
                     flex: 10,
@@ -56,7 +62,8 @@ Ext.define('StarterKit.view.customer.Customer', {
                 }],
             selModel: {
                 type: 'rowmodel',
-                mode: 'MULTI'
+                mode: 'SINGLE',
+                allowDeselect: true
             },
             plugins: {
                 ptype: 'rowediting',
@@ -76,11 +83,17 @@ Ext.define('StarterKit.view.customer.Customer', {
                     }, {
                         text: 'Edit',
                         reference: 'editButton',
-                        handler: 'onEdit'
+                        handler: 'onEdit',
+                        bind: {
+                            hidden: '{!customers.selection}'
+                        }
                     }, {
                         text: 'Delete',
                         reference: 'deleteButton',
-                        handler: 'onDelete'
+                        handler: 'onDelete',
+                        bind: {
+                            hidden: '{!customers.selection}'
+                        }
                     }, {
                         text: 'Sync',
                         handler: function (btn) {

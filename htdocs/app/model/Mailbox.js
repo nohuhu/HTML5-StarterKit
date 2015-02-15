@@ -9,6 +9,9 @@ Ext.define('StarterKit.model.Mailbox', {
         'Ext.data.field.Date',
         'Ext.data.field.Boolean'
     ],
+    uses: [
+        'StarterKit.model.Domain'
+    ],
     idProperty: 'id',
     clientIdProperty: 'clientId',
     fields: [{
@@ -16,7 +19,8 @@ Ext.define('StarterKit.model.Mailbox', {
             type: 'int'
         }, {
             name: 'domain_id',
-            type: 'int'
+            type: 'int',
+            reference: 'StarterKit.model.Domain'
         }, {
             name: 'name',
             type: 'string'
