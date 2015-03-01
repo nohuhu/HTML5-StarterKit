@@ -1,9 +1,10 @@
+/*
+ * This file contains the definition for our Customer store.
+ */
 Ext.define('StarterKit.store.Customer', {
     extend: 'Ext.data.Store',
-    alias:  'store.customer',
-    
+    alias: 'store.customer',
     model: 'StarterKit.model.Customer',
-    
     proxy: {
         type: 'direct',
         api: {
@@ -13,6 +14,5 @@ Ext.define('StarterKit.store.Customer', {
             destroy: 'StarterKit.Customer.delete'
         }
     },
-    
     autoLoad: true
 });

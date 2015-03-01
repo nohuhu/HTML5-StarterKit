@@ -1,0 +1,1 @@
+This folder contains the Customer model, view and controller.

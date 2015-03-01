@@ -1,0 +1,1 @@
+This folder contains the Mailbox model, view and controller.

@@ -1,11 +1,9 @@
 /**
- * This class is the view model for the Main view of the application.
+ * This class is the view model for the Domain view of the application.
  */
 Ext.define('StarterKit.view.domain.DomainModel', {
     extend: 'Ext.app.ViewModel',
-
     alias: 'viewmodel.domain',
-
     data: {
         name: 'StarterKit'
     }
