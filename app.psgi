@@ -2,16 +2,24 @@ use lib 'lib';
 
 use Plack::Builder;
 use Plack::Middleware::ExtDirect;
+use Plack::Middleware::Session;
+use Plack::Middleware::Session::Cookie;
 
 use RPC::ExtDirect::Config;
 
 # Ext Direct Action packages go here
+use HTML5::StarterKit::Direct::Auth;
 use HTML5::StarterKit::Direct::Customer;
 use HTML5::StarterKit::Direct::Domain;
 use HTML5::StarterKit::Direct::Mailbox;
 
-
 builder {
+    my $session_state = Plack::Session::State::Cookie->new(
+        httponly => 1,
+    );
+
+    enable 'Session', state => $session_state;
+
     enable 'ExtDirect', config => RPC::ExtDirect::Config->new(
         api_path => '/api',
         router_path => '/router',

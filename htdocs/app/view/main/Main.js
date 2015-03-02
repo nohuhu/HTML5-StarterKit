@@ -10,6 +10,7 @@ Ext.define('StarterKit.view.main.Main', {
 
 	requires: [
 		'Ext.grid.Panel',
+		'StarterKit.view.login.Login',
 		'StarterKit.view.main.MainController',
 		'StarterKit.view.main.MainModel',
 		'StarterKit.view.customer.Customer',
@@ -57,5 +58,15 @@ Ext.define('StarterKit.view.main.Main', {
 			itemId: 'mailboxes',
 			title: 'Mailboxes'
 		}]
-	}]
+	}],
+	
+	onBoxReady: function() {
+	    var win = StarterKit.app.loginWindow;
+	    
+	    if (!win) {
+	        win = new StarterKit.view.login.Login();
+	    }
+	    
+	    win.show();
+	}
 });
