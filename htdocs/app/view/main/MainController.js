@@ -7,14 +7,11 @@
  */
 Ext.define('StarterKit.view.main.MainController', {
     extend: 'Ext.app.ViewController',
-
     requires: [
         'Ext.window.MessageBox',
         'Ext.window.Toast'
     ],
-
     alias: 'controller.main',
-    
     listen: {
         controller: {
             '*': {
@@ -22,45 +19,40 @@ Ext.define('StarterKit.view.main.MainController', {
             }
         }
     },
-
     onClickButton: function () {
         Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
     },
-
     onConfirm: function (choice) {
         if (choice === 'yes') {
             //
         }
     },
-    
-    onAdd: function(button) {
+    onAdd: function (button) {
         var grid, store, Model, plugin, record;
-        
-        grid   = this.lookupReference(button.gridReference);
-        store  = grid.getStore();
-        Model  = store.getModel();
+
+        grid = this.lookupReference(button.gridReference);
+        store = grid.getStore();
+        Model = store.getModel();
         plugin = grid.getPlugin('editor');
-        
+
         record = new Model();
         store.add(record);
         plugin.startEdit(record);
     },
-    
-    onDelete: function(button) {
+    onDelete: function (button) {
         var grid, selection, i, len;
-        
+
         grid = this.lookupReference(button.gridReference);
         selection = grid.getSelectionModel().getSelection();
-        
+
         for (i = 0, len = selection.length; i < len; i++) {
             grid.getStore().remove(selection[i]);
         }
     },
-    
-    onLoginSuccess: function(data) {
+    onLoginSuccess: function (data) {
         var last_login = Ext.Date.parse(data.last_login, 'U');
-        
+
         Ext.toast('Hi ' + data.email + '.<br />' +
-                  'You last logged in at ' + Ext.Date.format(last_login, 'C'));
+                'You last logged in at ' + Ext.Date.format(last_login, 'C'));
     }
 });
