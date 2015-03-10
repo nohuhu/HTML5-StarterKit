@@ -1,3 +1,9 @@
+/*
+ * This class is the controller for the login view.
+ *
+ * TODO - Extend the content of this controller to suite the needs of your application.
+ */
+
 Ext.define('StarterKit.view.login.LoginController', {
     extend: 'Ext.app.ViewController',
     alias:  'controller.login',
