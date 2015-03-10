@@ -1,8 +1,5 @@
 package HTML5::StarterKit::Direct::Auth;
 
-use strict;
-use warnings;
-
 use RPC::ExtDirect Action => 'Auth';
 
 use HTML5::StarterKit::Schema;

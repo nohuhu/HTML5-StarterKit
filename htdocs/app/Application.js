@@ -5,17 +5,21 @@
  */
 Ext.define('StarterKit.Application', {
     extend: 'Ext.app.Application',
+    
     requires: [
         'Ext.direct.Manager',
         'Ext.direct.RemotingProvider',
         'StarterKit.store.Customer',
-        'StarterKit.store.Domain',
-        'StarterKit.store.Mailbox'
+		'StarterKit.store.Domain',
+		'StarterKit.store.Mailbox'
     ],
+    
     name: 'StarterKit',
+
     stores: [
         // TODO: add global / shared stores here
     ],
+    
     launch: function () {
         Ext.direct.Manager.addProvider(REMOTING_API);
     }
