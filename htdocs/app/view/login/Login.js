@@ -1,3 +1,8 @@
+/*
+ * This class is the login view for the application.
+ *
+ * TODO - Extend the content of this view to suite the needs of your application.
+ */
 Ext.define('StarterKit.view.login.Login', {
     extend: 'Ext.window.Window',
     xtype:  'app-login',
