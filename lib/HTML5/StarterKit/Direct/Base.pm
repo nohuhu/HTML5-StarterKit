@@ -30,6 +30,9 @@ sub read {
         }
     };
     
+    # Page attribute in Ext JS is not the same as in DBIC
+    delete $attr{page};
+    
     my $schema = HTML5::StarterKit::Schema->connect(
         $dsn,
         undef,
@@ -38,14 +41,21 @@ sub read {
             on_connect_do => 'PRAGMA foreign_keys = ON',
         }
     );
+
     my $resultset = $schema->resultset($table);
 
     # Another hackish hack
     $resultset->result_class('DBIx::Class::ResultClass::HashRefInflator');
+
+    my $total = $resultset->count();
     
     my $results = $resultset->search({ %arg }, \%attr);
-    
-    return [ map { +{ $_->get_columns } } $results->all() ];
+    my @records = map { +{ $_->get_columns } } $results->all();
+
+    return {
+        records => \@records,
+        total => $total,
+    };
 }
 
 sub create {
