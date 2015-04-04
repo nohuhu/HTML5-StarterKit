@@ -2,32 +2,21 @@
  * This file contains the definition for our Mailbox model.
  */
 Ext.define('StarterKit.model.Mailbox', {
-    extend: 'Ext.data.Model',
-    
+    extend: 'StarterKit.model.Base',
+
     requires: [
-        'Ext.data.field.Number',
-        'Ext.data.field.String',
-        'Ext.data.field.Date',
-        'Ext.data.field.Boolean'
+        'Ext.data.field.Boolean',
+        'StarterKit.model.Base'
     ],
-    
+
     uses: [
         'StarterKit.model.Domain'
     ],
     
-    idProperty: 'id',
-    clientIdProperty: 'clientId',
-    
     fields: [{
-        name: 'id',
-        type: 'int'
-    }, {
         name: 'domain_id',
         type: 'int',
         reference: 'StarterKit.model.Domain'
-    }, {
-        name: 'name',
-        type: 'string'
     }, {
         name: 'localpart',
         type: 'string'
@@ -44,11 +33,5 @@ Ext.define('StarterKit.model.Mailbox', {
     }, {
         name: 'ooo_message',
         type: 'string'
-    }, {
-        name: 'last_change',
-        type: 'date',
-        convert: function (value) {
-            return Ext.Date.parse(value, 'Y-m-d H:i:s');
-        }
     }]
 });
