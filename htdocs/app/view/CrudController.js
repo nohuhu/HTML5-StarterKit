@@ -49,5 +49,14 @@ Ext.define('StarterKit.view.CrudController', {
         for (i = 0, len = selection.length; i < len; i++) {
             store.remove(selection[i]);
         }
+    },
+
+    onSync: function(button) {
+        var grid, store;
+
+        grid = this.lookupReference('grid');
+        store = grid.getStore();
+        store.sync();
     }
+
 });
