@@ -26,7 +26,7 @@ Ext.define('StarterKit.view.CrudController', {
     
     onConfirm: Ext.emptyFn,
     
-    onAdd: function(button) {
+    onAdd: function() {
         var grid, store, Model, plugin, record;
         
         grid = this.lookupReference('grid');
@@ -39,7 +39,7 @@ Ext.define('StarterKit.view.CrudController', {
         plugin.startEdit(record);
     },
     
-    onDelete: function(button) {
+    onDelete: function() {
         var grid, store, selection, i, len;
         
         grid = this.lookupReference('grid');
@@ -51,7 +51,7 @@ Ext.define('StarterKit.view.CrudController', {
         }
     },
 
-    onSync: function(button) {
+    onSync: function() {
         var grid, store;
 
         grid = this.lookupReference('grid');
