@@ -38,6 +38,15 @@ Ext.define('StarterKit.view.CrudController', {
         store.add(record);
         plugin.startEdit(record);
     },
+
+    onEdit: function () {
+        var grid, record;
+
+        grid = this.lookupReference('grid');
+        selection = grid.getSelectionModel().getSelection();
+        record = selection[0];
+        grid.getPlugin('editor').startEdit(record);
+    },
     
     onDelete: function() {
         var grid, store, selection, i, len;
