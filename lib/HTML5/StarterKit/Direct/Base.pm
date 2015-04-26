@@ -29,6 +29,13 @@ sub read {
             $attr{$attr_name} = delete $arg{$std_param};
         }
     };
+
+    # dirty hack to fix the order_by hash...
+    if ( exists $attr{'order_by'} ) {
+        my $order = '-' . lc($attr{'order_by'}[0]{'direction'});
+        my $column = $attr{'order_by'}[0]{'property'};
+        $attr{'order_by'} = { $order => $column };
+    }
     
     # Page attribute in Ext JS is not the same as in DBIC
     delete $attr{page};
