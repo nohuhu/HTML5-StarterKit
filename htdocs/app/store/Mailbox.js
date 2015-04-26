@@ -7,6 +7,8 @@ Ext.define('StarterKit.store.Mailbox', {
     
     model: 'StarterKit.model.Mailbox',
     
+    remoteSort: true,
+    
     proxy: {
         type: 'direct',
         

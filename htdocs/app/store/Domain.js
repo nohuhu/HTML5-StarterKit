@@ -7,6 +7,8 @@ Ext.define('StarterKit.store.Domain', {
     
     model: 'StarterKit.model.Domain',
     
+    remoteSort: true,
+    
     proxy: {
         type: 'direct',
         

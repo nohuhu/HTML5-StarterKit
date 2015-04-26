@@ -7,6 +7,8 @@ Ext.define('StarterKit.store.Customer', {
     
     model: 'StarterKit.model.Customer',
     
+    remoteSort: true,
+    
     proxy: {
         type: 'direct',
         
