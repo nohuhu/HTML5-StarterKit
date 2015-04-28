@@ -26,10 +26,7 @@ Ext.define('StarterKit.view.CrudView', {
         }
     }, {
         text: 'Sync',
-        handler: function(btn) {
-            var grid = btn.up('gridpanel');
-            grid.getStore().sync();
-        }
+        handler: 'onSync'
     }],
     
     bbar: {

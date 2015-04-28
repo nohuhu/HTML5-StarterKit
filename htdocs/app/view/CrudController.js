@@ -26,7 +26,7 @@ Ext.define('StarterKit.view.CrudController', {
     
     onConfirm: Ext.emptyFn,
     
-    onAdd: function(button) {
+    onAdd: function() {
         var grid, store, Model, plugin, record;
         
         grid = this.lookupReference('grid');
@@ -38,8 +38,17 @@ Ext.define('StarterKit.view.CrudController', {
         store.add(record);
         plugin.startEdit(record);
     },
+
+    onEdit: function () {
+        var grid, record;
+
+        grid = this.lookupReference('grid');
+        selection = grid.getSelectionModel().getSelection();
+        record = selection[0];
+        grid.getPlugin('editor').startEdit(record);
+    },
     
-    onDelete: function(button) {
+    onDelete: function() {
         var grid, store, selection, i, len;
         
         grid = this.lookupReference('grid');
@@ -49,5 +58,14 @@ Ext.define('StarterKit.view.CrudController', {
         for (i = 0, len = selection.length; i < len; i++) {
             store.remove(selection[i]);
         }
+    },
+
+    onSync: function() {
+        var grid, store;
+
+        grid = this.lookupReference('grid');
+        store = grid.getStore();
+        store.sync();
     }
+
 });

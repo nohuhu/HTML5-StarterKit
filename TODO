@@ -1,0 +1,17 @@
+BUGS
+====
+- [ ] On switching tabs, Paging Toolbar shows correct number of records, but is stuck on saying 1/1 pages.
+- [ ] Reloading the page will reset the app and request login once more. Should this rather be a session with expiration time or something like that?
+
+
+SUGGESTED IMPROVEMENTS
+======================
+- [ ] Sorting is local only and will only sort the currently displayed rows. Convert to server-side sort.
+- [ ] Editing a domain or mailbox row should have the Customer ID or Domain ID replaced with Customer and Domain and the field should be a drop-down that displays the names of the customers and domains in those tables.
+
+
+FEATURE REQUESTS
+================
+- [ ] Add (server-side) searching / filtering
+- [ ] Add detail view (popup window?) instead of row edit?
+- [ ] Since models are attached to a schema, we should be able to use Ext.data.session to take care of related records, etc.
